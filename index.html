@@ -10,8 +10,10 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo-container">
-                <img src="images/main-logo.jpg" alt="CISI Logo" class="logo-img">
-                <span class="company-name">CISI</span>
+                <a href="#home" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                    <img src="images/main-logo.jpeg" alt="CISI Logo" class="logo-img">
+                    <span class="company-name">CISI</span>
+                </a>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Inicio</a></li>
@@ -26,7 +28,7 @@
         <div class="container">
             <h2>CISI</h2>
             <p>Centro de Ingeniería y Servicios Industriales</p>
-            <button class="btn" id="cta-btn">Conocer Más</button>
+            <a href="#about" class="btn" id="cta-btn" style="text-decoration: none; display: inline-block;">Conocer Más</a>
         </div>
     </section>
 
@@ -99,10 +101,10 @@
 
             <p>¿Tiene alguna pregunta? Nos encantaría escuchar de usted. Envíenos un mensaje y nos comunicaremos pronto.</p>
             <form id="contact-form">
-                <input type="text" placeholder="Su Nombre" required>
-                <input type="email" placeholder="Su Correo Electrónico" required>
-                <input type="tel" placeholder="Su Teléfono (Opcional)">
-                <textarea placeholder="Su Mensaje" rows="5" required></textarea>
+                <input type="text" placeholder="Su Nombre" required aria-label="Nombre">
+                <input type="email" placeholder="Su Correo Electrónico" required aria-label="Correo">
+                <input type="tel" placeholder="Su Teléfono (Opcional)" aria-label="Teléfono">
+                <textarea placeholder="Su Mensaje" rows="5" required aria-label="Mensaje"></textarea>
                 <button type="submit" class="btn">Enviar Mensaje</button>
             </form>
         </div>
