@@ -1,53 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to cisi-jose</title>
+    <title>CISI - Central de Ingeniería y Servicios Industriales</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <h1 class="logo">cisi-jose</h1>
+            <div class="logo-container">
+                <img src="images/main-logo.png" alt="CISI Logo" class="logo-img">
+                <span class="company-name">CISI</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#contact">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home" class="hero">
         <div class="container">
-            <h2>Welcome!</h2>
-            <p>This is a simple web page</p>
-            <button class="btn" id="cta-btn">Get Started</button>
+            <h2>CISI</h2>
+            <p>Soluciones integrales para la industria moderna</p>
+            <button class="btn" id="cta-btn">Conocer Más</button>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-            <h2>About</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h2>Sobre Nosotros</h2>
+            <p>En CISI, nos especializamos en proporcionar soluciones de ingeniería de calidad superior y servicios industriales personalizados para empresas de todos los tamaños.</p>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Experiencia</h3>
+                    <p>Más de 20 años sirviendo a la industria con profesionalismo y dedicación.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Profesionalismo</h3>
+                    <p>Equipo altamente capacitado con certificaciones internacionales.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Innovación</h3>
+                    <p>Soluciones modernas y tecnológicas para los desafíos industriales.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Compromiso</h3>
+                    <p>Dedicados a la satisfacción y éxito de nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Consultoría Técnica</h3>
+                    <p>Asesoramiento experto en ingeniería, diseño de procesos y optimización de sistemas industriales.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Diseño de Sistemas</h3>
+                    <p>Desarrollo de soluciones personalizadas adaptadas a las necesidades específicas de su empresa.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Instalación e Implementación</h3>
+                    <p>Ejecución profesional de proyectos con supervisión técnica continua y garantía de calidad.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Capacitación y Soporte</h3>
+                    <p>Entrenamiento del personal y soporte técnico permanente para máximo desempeño.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2>Contáctenos</h2>
+            <p>¿Tiene alguna pregunta? Nos encantaría escuchar de usted. Envíenos un mensaje y nos comunicaremos pronto.</p>
             <form id="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn">Send Message</button>
+                <input type="text" placeholder="Su Nombre" required>
+                <input type="email" placeholder="Su Correo Electrónico" required>
+                <input type="tel" placeholder="Su Teléfono (Opcional)">
+                <textarea placeholder="Su Mensaje" rows="5" required></textarea>
+                <button type="submit" class="btn">Enviar Mensaje</button>
             </form>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 cisi-jose. All rights reserved.</p>
+            <p>&copy; 2026 CISI - Central de Ingeniería y Servicios Industriales. Todos los derechos reservados.</p>
         </div>
     </footer>
 
