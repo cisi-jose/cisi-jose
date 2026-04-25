@@ -1,0 +1,9 @@
+# Images Directory
+
+This folder contains all image assets for the CISI website including logos, icons, and other visual elements.
+
+## Structure
+
+- `logo.png` - Company logo (to be added)
+- `logo.svg` - Company logo in SVG format (optional)
+- Other images and icons can be added here
