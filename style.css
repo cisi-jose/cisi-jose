@@ -35,7 +35,7 @@ body {
 /* 1. Navigation Overhaul */
 .navbar {
     background-color: #171819;
-    border-b: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     position: sticky;
     top: 0;
     z-index: 1000;
