@@ -1,4 +1,6 @@
-/* SUGGESTION: Smooth scrolling for the whole page */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* Global Reset & Base Configurations */
 html {
     scroll-behavior: smooth;
 }
@@ -10,457 +12,448 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: #E2E8F0;
+    background-color: #141516; /* Deep charcoal matching the sample theme */
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
+/* Structural Configurations */
+.nav-container, 
+.hero-container, 
+.section-container {
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 
-/* Navigation */
+.small-container {
+    max-width: 800px;
+}
+
+/* 1. Navigation Overhaul */
 .navbar {
-    background: linear-gradient(135deg, #1a5490 0%, #0d2d4a 100%);
-    color: white;
-    padding: 0.8rem 0;
+    background-color: #171819;
+    border-b: 1px solid rgba(255, 255, 255, 0.07);
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+    z-index: 1000;
 }
 
-.navbar .container {
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 80px;
 }
 
-.logo-container {
+.logo-link {
     display: flex;
     align-items: center;
-    gap: 20px;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.logo-container:hover {
-    opacity: 0.9;
+    gap: 12px;
+    text-decoration: none;
 }
 
 .logo-img {
-    height: 50px; /* Adjust this if the logo looks too small or big */
+    height: 40px;
     width: auto;
     object-fit: contain;
-    border-radius: 4px; /* Optional: adds a slight curve to logo corners */
+    filter: grayscale(20%);
 }
 
 .company-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 3px;
-    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #FF6B35; /* Industrial Orange Accent */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 40px;
 }
 
 .nav-links a {
-    color: white;
+    color: #94A3B8;
     text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #ff9500;
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #FFFFFF;
 }
 
-/* Hero Section */
+/* Reusable Button Specs */
+.btn-outline {
+    border: 1px solid rgba(255, 107, 53, 0.5);
+    color: #FF6B35;
+    text-decoration: none;
+    padding: 10px 24px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: #FF6B35;
+    color: #FFFFFF;
+    border-color: #FF6B35;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 14px 36px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    border-color: #FF6B35;
+}
+
+.btn-primary .arrow {
+    color: #FF6B35;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* 2. Hero Layout Section */
 .hero {
-    background: linear-gradient(135deg, #1a5490 0%, #0d2d4a 100%);
-    color: white;
-    padding: 120px 0;
-    text-align: center;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    background-color: #141516;
+    padding: 60px 0;
 }
 
-.hero h2 {
+.hero-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px;
+    width: 100%;
+    align-items: center;
+}
+
+.hero-text-block {
+    grid-column: span 5;
+}
+
+.hero-title {
     font-size: 4rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    letter-spacing: 4px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    color: #FFFFFF;
 }
 
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    color: #e0e0e0;
+.hero-title .highlight {
+    font-weight: 700;
+    color: #F8FAFC;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #94A3B8;
+    max-width: 460px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.hero-image-block {
+    grid-column: span 7;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-render {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-contain: fill;
+    filter: drop-shadow(0 25px 50px rgba(0,0,0,0.5));
+}
+
+.glow-effect {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 107, 53, 0.03);
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    top: 15%;
+}
+
+/* 3. Global Section Header Styling */
+.section-container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #FFFFFF;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+}
+
+.section-header p {
+    color: #94A3B8;
+    font-size: 1.1rem;
+    max-width: 700px;
     font-weight: 300;
 }
 
-/* Buttons */
-.btn {
-    background-color: #ff9500;
-    color: white;
-    padding: 12px 35px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-weight: 600;
-}
-
-.btn:hover {
-    background-color: #ff7f00;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
-}
-
-.btn:active {
-    transform: translateY(0);
-}
-
-/* About Section */
-.about {
-    background-color: white;
-    padding: 80px 0;
-}
-
-.about h2 {
-    font-size: 2.8rem;
-    margin-bottom: 1.5rem;
-    color: #1a5490;
-    text-align: center;
-}
-
-.about > .container > p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: #666;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Director Card */
-.director-card {
-    background: linear-gradient(135deg, #1a5490 0%, #0d2d4a 100%);
-    color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.director-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #ff9500;
-}
-
-.director-card p {
-    margin: 0.5rem 0;
-    font-size: 1rem;
-}
-
-.director-card strong {
-    font-size: 1.2rem;
-    color: white;
-}
-
-.contact-link {
-    display: inline-block;
-    margin-top: 0.8rem;
-    color: #ff9500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 500;
-}
-
-.contact-link:hover {
-    color: #ffb84d;
-}
-
-.features {
+/* 4. Industrial Layout Grid for Features */
+.features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 60px;
 }
 
 .feature-card {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-    border-left: 4px solid #ff9500;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 40px;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #161718;
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+.card-number {
+    display: block;
+    font-size: 0.85rem;
+    color: #FF6B35;
+    font-weight: 600;
+    margin-bottom: 24px;
 }
 
 .feature-card h3 {
-    color: #1a5490;
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #F1F5F9;
+    margin-bottom: 12px;
 }
 
 .feature-card p {
-    color: #666;
     font-size: 0.95rem;
-    line-height: 1.6;
+    color: #94A3B8;
+    font-weight: 300;
 }
 
-/* Services Section */
+/* Director Banner Layout */
+.director-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #171819;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 30px 40px;
+}
+
+.director-info h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #FF6B35;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.director-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.director-title {
+    font-size: 0.9rem;
+    color: #94A3B8;
+}
+
+.director-contact {
+    color: #E2E8F0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s ease;
+}
+
+.director-contact:hover {
+    border-color: #FF6B35;
+}
+
+/* 5. Services Section Formatting */
 .services {
-    background-color: #f4f4f4;
-    padding: 80px 0;
-}
-
-.services h2 {
-    font-size: 2.8rem;
-    margin-bottom: 3rem;
-    color: #1a5490;
-    text-align: center;
+    background-color: #121314; /* Dark structural differentiation alternation */
+    border-y: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background-color: rgba(255, 255, 255, 0.08); /* Serves as thin inner lines */
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .service-card {
-    background-color: white;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 5px solid #ff9500;
+    padding: 50px;
+    background-color: #141516;
+    transition: background-color 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background-color: #171819;
 }
 
 .service-card h3 {
-    color: #1a5490;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
 .service-card p {
-    color: #666;
-    line-height: 1.7;
-    font-size: 0.95rem;
-}
-
-/* Contact Section */
-.contact {
-    background-color: white;
-    padding: 80px 0;
-}
-
-.contact h2 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
-    color: #1a5490;
-    text-align: center;
-}
-
-.contact > .container > p {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    color: #666;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Contact Info */
-.contact-info {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 2.5rem;
-    border-left: 4px solid #ff9500;
-}
-
-.contact-info p {
-    margin: 0.5rem 0;
+    color: #94A3B8;
     font-size: 1rem;
+    font-weight: 300;
 }
 
-.contact-info strong {
-    color: #1a5490;
-    font-size: 1.1rem;
-}
-
-.email-link {
-    display: inline-block;
-    margin-top: 0.8rem;
-    color: #1a5490;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 500;
-}
-
-.email-link:hover {
-    color: #ff9500;
-}
-
+/* 6. Contact Form Design Minimalist Approach */
 #contact-form {
-    max-width: 600px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 20px;
 }
 
-#contact-form input,
-#contact-form textarea {
-    padding: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 16px;
+    background-color: #171819;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
     font-family: inherit;
     font-size: 1rem;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
-#contact-form input:focus,
-#contact-form textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
-    border-color: #1a5490;
-    background-color: white;
-    box-shadow: 0 0 8px rgba(26, 84, 144, 0.2);
+    border-color: #FF6B35;
 }
 
-/* Footer */
+.form-submit {
+    align-self: flex-start;
+}
+
+/* 7. Footer Design Definitions */
 .footer {
-    background: linear-gradient(135deg, #1a5490 0%, #0d2d4a 100%);
-    color: white;
-    padding: 3rem 0 1.5rem 0;
-    margin-top: 0;
+    background-color: #0E0F10;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 0;
+    font-size: 0.85rem;
+    color: #64748B;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.footer-section h4 {
-    color: #ff9500;
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+.footer-meta {
+    display: flex;
+    gap: 30px;
 }
 
-.footer-section p {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-.footer-section a {
-    color: #ff9500;
+.footer-meta a {
+    color: #94A3B8;
     text-decoration: none;
-    transition: color 0.3s ease;
 }
 
-.footer-section a:hover {
-    color: #ffb84d;
+.footer-meta a:hover {
+    color: #FF6B35;
 }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
+/* Media Breakpoints for Full Responsiveness */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 40px;
+    }
+    
+    .hero-text-block {
+        grid-column: span 12;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-image-block {
+        grid-column: span 12;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.footer-links li {
-    margin: 0.5rem 0;
-}
-
-.footer-links a {
-    font-size: 0.95rem;
-}
-
-.footer-divider {
-    border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin: 2rem 0;
-}
-
-.footer-bottom {
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
+        display: none; /* Mobile optimization safely hiding non-essential nav pieces */
     }
 
-    .logo-img {
-        height: 40px;
-    }
-
-    .company-name {
-        font-size: 1.2rem;
-        letter-spacing: 2px;
-    }
-
-    .hero h2 {
-        font-size: 2.5rem;
-        letter-spacing: 2px;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-    }
-
-    .about h2,
-    .services h2,
-    .contact h2 {
-        font-size: 2rem;
-    }
-
-    .about > .container > p,
-    .contact > .container > p {
-        font-size: 1rem;
-    }
-
-    #contact-form {
-        max-width: 100%;
-    }
-
-    .director-card {
-        margin-bottom: 2rem;
-    }
-
-    .footer-content {
+    .features-grid {
         grid-template-columns: 1fr;
+    }
+
+    .director-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
 }
