@@ -1,4 +1,4 @@
-// Smooth scrolling for navigation links
+// Smooth scrolling navigation framework
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -12,7 +12,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Update Active Nav Link on click
+// Update Active Nav Links dynamically
 const navLinks = document.querySelectorAll('.nav-links a');
 navLinks.forEach(link => {
     link.addEventListener('click', function() {
@@ -21,12 +21,35 @@ navLinks.forEach(link => {
     });
 });
 
-// Clean Contact Form handler submission override
+// NEW: Dynamic Category Filtering Logic for Projects section
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        // Toggle active visual class on buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const selectedFilter = button.getAttribute('data-filter');
+
+        // Show/Hide project grid cards with clean styling switches
+        projectCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (selectedFilter === 'all' || cardCategory === selectedFilter) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// Clean Contact Form submit fallback handler
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        console.log('Form submission intercepted successfully.');
         alert('¡Gracias por su mensaje! Nos comunicaremos con usted a la brevedad.');
         contactForm.reset();
     });
