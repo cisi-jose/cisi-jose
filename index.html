@@ -7,68 +7,101 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- 1. NAVIGATION -->
     <nav class="navbar">
-        <div class="container">
+        <div class="nav-container">
             <div class="logo-container">
-                <a href="#home" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <a href="#home" class="logo-link">
                     <img src="images/main-logo.jpeg" alt="CISI Logo" class="logo-img">
                     <span class="company-name">CISI</span>
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="#home">Inicio</a></li>
+                <li><a href="#home" class="active">Inicio</a></li>
                 <li><a href="#about">Nosotros</a></li>
                 <li><a href="#services">Servicios</a></li>
-                <li><a href="#contact">Contacto</a></li>
             </ul>
+            <div class="nav-cta">
+                <a href="#contact" class="btn-outline">Contacto</a>
+            </div>
         </div>
     </nav>
 
+    <!-- 2. HERO SECTION -->
     <section id="home" class="hero">
-        <div class="container">
-            <h2>CISI</h2>
-            <p>Centro de Ingeniería y Servicios Industriales</p>
-            <a href="#about" class="btn" id="cta-btn" style="text-decoration: none; display: inline-block;">Conocer Más</a>
+        <div class="hero-container">
+            <!-- Left Side: Engineering Copywriting -->
+            <div class="hero-text-block">
+                <h1 class="hero-title">
+                    Ingeniería <br>
+                    <span class="highlight">y Servicios Industriales</span>
+                </h1>
+                <p class="hero-description">
+                    Soluciones de calidad superior y servicios personalizados diseñados para superar los desafíos técnicos de la industria moderna.
+                </p>
+                <div class="hero-actions">
+                    <a href="#about" class="btn-primary" id="cta-btn">Conocer Más <span class="arrow">→</span></a>
+                </div>
+            </div>
+
+            <!-- Right Side: 3D Product Render Asset -->
+            <div class="hero-image-block">
+                <div class="glow-effect"></div>
+                <img src="image_6d5ccc.jpg" alt="Roboticized Industrial Equipment Showcase" class="hero-render">
+            </div>
         </div>
     </section>
 
+    <!-- 3. ABOUT & FEATURES SECTION -->
     <section id="about" class="about">
-        <div class="container">
-            <h2>Sobre Nosotros</h2>
-            
-            <div class="director-card">
-                <h3>Dirección</h3>
-                <p><strong>Ing. Jose Ángel González Rojas</strong></p>
-                <p>Fundador y Gerente General</p>
-                <a href="mailto:gora6303@hotmail.com" class="contact-link">📧 gora6303@hotmail.com</a>
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Sobre Nosotros</h2>
+                <p>En CISI, nos especializamos en proporcionar soluciones de ingeniería de calidad superior para empresas de todos los tamaños.</p>
             </div>
-
-            <p>En CISI, nos especializamos en proporcionar soluciones de ingeniería de calidad superior y servicios industriales personalizados para empresas de todos los tamaños.</p>
             
-            <div class="features">
+            <div class="features-grid">
                 <div class="feature-card">
+                    <span class="card-number">01</span>
                     <h3>Experiencia</h3>
                     <p>Más de 20 años sirviendo a la industria con profesionalismo y dedicación.</p>
                 </div>
                 <div class="feature-card">
+                    <span class="card-number">02</span>
                     <h3>Profesionalismo</h3>
                     <p>Equipo altamente capacitado con certificaciones internacionales.</p>
                 </div>
                 <div class="feature-card">
+                    <span class="card-number">03</span>
                     <h3>Innovación</h3>
                     <p>Soluciones modernas y tecnológicas para los desafíos industriales.</p>
                 </div>
                 <div class="feature-card">
+                    <span class="card-number">04</span>
                     <h3>Compromiso</h3>
                     <p>Dedicados a la satisfacción y éxito de nuestros clientes.</p>
                 </div>
             </div>
+
+            <!-- Director Card Integration -->
+            <div class="director-banner">
+                <div class="director-info">
+                    <h3>Dirección General</h3>
+                    <p class="director-name">Ing. Jose Ángel González Rojas</p>
+                    <p class="director-title">Fundador y Gerente General</p>
+                </div>
+                <a href="mailto:gora6303@hotmail.com" class="director-contact">📧 gora6303@hotmail.com</a>
+            </div>
         </div>
     </section>
 
+    <!-- 4. SERVICES SECTION -->
     <section id="services" class="services">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Nuestros Servicios</h2>
+            </div>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Consultoría Técnica</h3>
@@ -90,52 +123,39 @@
         </div>
     </section>
 
+    <!-- 5. CONTACT FORM SECTION -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contáctenos</h2>
-            
-            <div class="contact-info">
-                <p><strong>Gerente General:</strong> Ing. Jose Ángel González Rojas</p>
-                <p><strong>Email:</strong> <a href="mailto:gora6303@hotmail.com" class="email-link">gora6303@hotmail.com</a></p>
+        <div class="section-container small-container">
+            <div class="section-header">
+                <h2>Contáctenos</h2>
+                <p>¿Tiene alguna pregunta? Envíenos un mensaje y nos comunicaremos pronto.</p>
             </div>
 
-            <p>¿Tiene alguna pregunta? Nos encantaría escuchar de usted. Envíenos un mensaje y nos comunicaremos pronto.</p>
             <form id="contact-form">
-                <input type="text" placeholder="Su Nombre" required aria-label="Nombre">
-                <input type="email" placeholder="Su Correo Electrónico" required aria-label="Correo">
-                <input type="tel" placeholder="Su Teléfono (Opcional)" aria-label="Teléfono">
-                <textarea placeholder="Su Mensaje" rows="5" required aria-label="Mensaje"></textarea>
-                <button type="submit" class="btn">Enviar Mensaje</button>
+                <div class="form-group">
+                    <input type="text" placeholder="Su Nombre" required aria-label="Nombre">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Su Correo Electrónico" required aria-label="Correo">
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Su Teléfono (Opcional)" aria-label="Teléfono">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Su Mensaje" rows="5" required aria-label="Mensaje"></textarea>
+                </div>
+                <button type="submit" class="btn-primary form-submit">Enviar Mensaje</button>
             </form>
         </div>
     </section>
 
+    <!-- 6. MINIMALIST FOOTER -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Sobre CISI</h4>
-                    <p>Centro de Ingeniería y Servicios Industriales dedicado a proporcionar soluciones de calidad superior para la industria.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Inicio</a></li>
-                        <li><a href="#about">Nosotros</a></li>
-                        <li><a href="#services">Servicios</a></li>
-                        <li><a href="#contact">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <p><strong>Gerente General:</strong></p>
-                    <p>Ing. Jose Ángel González Rojas</p>
-                    <p><a href="mailto:gora6303@hotmail.com">📧 gora6303@hotmail.com</a></p>
-                </div>
-            </div>
-            <hr class="footer-divider">
-            <div class="footer-bottom">
-                <p>&copy; 2026 CISI - Central de Ingeniería y Servicios Industriales. Todos los derechos reservados.</p>
+        <div class="footer-container">
+            <p>&copy; 2026 CISI - Central de Ingeniería y Servicios Industriales. Todos los derechos reservados.</p>
+            <div class="footer-meta">
+                <span>Gerente General: Ing. Jose Ángel González Rojas</span>
+                <a href="mailto:gora6303@hotmail.com">gora6303@hotmail.com</a>
             </div>
         </div>
     </footer>
