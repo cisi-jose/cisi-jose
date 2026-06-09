@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 /* Global Reset & Base Configurations */
 html {
@@ -32,7 +32,7 @@ body {
     max-width: 800px;
 }
 
-/* 1. Navigation Navbar Layout */
+/* 1. Navigation Framework */
 .navbar {
     background-color: #171819;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -138,7 +138,7 @@ body {
     transform: translateX(4px);
 }
 
-/* 2. Hero Section Layout Proportions */
+/* 2. Hero Section */
 .hero {
     position: relative;
     min-height: 500px; 
@@ -182,7 +182,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Base Full-Section Watermark Pattern Settings */
+/* Watermark Stylesheet Configurations */
 .hero-watermark-bg {
     position: absolute;
     top: 50%;
@@ -192,19 +192,16 @@ body {
     height: 50vw;
     max-width: 650px;
     max-height: 650px;
-    /* NOTE: Double-check that your file extension matches lowercase .jpeg exactly on GitHub */
     background-image: url('images/main-logo.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    
     filter: invert(1) brightness(0.5) opacity(0.05);
     mix-blend-mode: screen;
     pointer-events: none;
     z-index: 1;
 }
 
-/* Ambient backdrop glow layer */
 .hero::before {
     content: '';
     position: absolute;
@@ -220,7 +217,7 @@ body {
     z-index: 0;
 }
 
-/* 3. Global Headers */
+/* 3. Global Section Header Styling */
 .section-container {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -323,7 +320,7 @@ body {
     border-color: #FF6B35;
 }
 
-/* 5. Services Layout block definitions */
+/* 5. Services Section Formatting */
 .services {
     background-color: #121314; 
     border-top: 1px solid rgba(255, 255, 255, 0.02);
@@ -361,7 +358,7 @@ body {
     font-weight: 300;
 }
 
-/* 6. Contact Form Block Elements */
+/* 6. Contact Form Design */
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -390,7 +387,7 @@ body {
     align-self: flex-start;
 }
 
-/* 7. Footer Styles */
+/* 7. Footer Design */
 .footer {
     background-color: #0E0F10;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -420,7 +417,7 @@ body {
 }
 
 /* ------------------------------------------------------------- */
-/* CRUCIAL MOBILE OVERHAUL RESPONSIVE BREAKPOINTS               */
+/* CELLPHONE & RESPONSIVE LAYOUT OVERHAULS                       */
 /* ------------------------------------------------------------- */
 
 @media (max-width: 1024px) {
@@ -438,16 +435,14 @@ body {
     .hero-title {
         font-size: 2.8rem; 
     }
-    
-    /* Reposition and scale the logo watermark specifically for mobile aspect ratios */
     .hero-watermark-bg {
         left: 50%; 
         top: 50%;
-        width: 75vmax; /* Sized relative to the largest screen dimension for constant volume */
+        width: 75vmax; 
         height: 75vmax;
         max-width: 500px;
         max-height: 500px;
-        opacity: 0.07; /* Bumped up slightly so it remains visible on mobile backlights */
+        opacity: 0.07; 
     }
     .hero::before {
         left: 50%;
@@ -464,22 +459,48 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* FIXED MOBILENAV: Instead of hiding, make it an elegant, low-profile swipeable bar */
+    /* FIXED MOBILENAV: Re-arranged structure layout grid definitions */
     .nav-container {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: auto auto; /* Two neat balanced columns */
+        grid-template-rows: auto auto;
         height: auto;
-        padding: 15px 20px;
-        gap: 12px;
+        padding: 16px 24px;
+        row-gap: 16px;
+        column-gap: 10px;
     }
     
-    .nav-links {
+    .logo-container {
+        grid-column: 1;
+        grid-row: 1;
         display: flex;
-        gap: 25px;
+        align-items: center;
+    }
+    
+    /* The Contacto button remains anchored top right on cellphones */
+    .nav-cta {
+        display: block; /* Restored visibility */
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+    
+    .btn-outline {
+        padding: 8px 18px; /* Tighter button sizing for phone headers */
+        font-size: 0.8rem;
+    }
+    
+    /* Menu Links bar spans perfectly across the row directly beneath */
+    .nav-links {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        display: flex;
+        gap: 30px;
         width: 100%;
         justify-content: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 12px;
         overflow-x: auto;
-        padding-bottom: 4px;
-        /* Hides native scrollbar track UI artifacts on premium mobile viewports */
         -webkit-overflow-scrolling: touch;
     }
     
@@ -487,10 +508,7 @@ body {
         display: none;
     }
 
-    .nav-cta {
-        display: none; /* Hide secondary duplicate contact button element to prioritize navbar minimalism */
-    }
-
+    /* Content and spacing cleanups */
     .hero-container {
         padding: 0 24px;
     }
