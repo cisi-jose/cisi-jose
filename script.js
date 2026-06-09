@@ -12,26 +12,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Button click handler
-const ctaBtn = document.getElementById('cta-btn');
-if (ctaBtn) {
-    ctaBtn.addEventListener('click', function () {
-        alert('Welcome! Thanks for clicking the button.');
-        document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+// Update Active Nav Link on click
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.forEach(lnk => lnk.classList.remove('active'));
+        this.classList.add('active');
     });
-}
+});
 
-// Contact form submission
+// Clean Contact Form handler submission override 
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        alert('Thank you for your message! We will get back to you soon.');
+        // Replacing browser notification alert blocks for custom sleek log console tracking
+        console.log('Form submission intercepted successfully.');
+        alert('¡Gracias por su mensaje! Nos comunicaremos con usted a la brevedad.');
         contactForm.reset();
     });
 }
-
-// Page load animation
-window.addEventListener('load', function () {
-    console.log('Page loaded successfully!');
-});
