@@ -197,13 +197,15 @@ body {
 
 .glow-effect {
     position: absolute;
-    width: 400px;
-    height: 400px;
-    background-color: rgba(255, 107, 53, 0.03);
+    width: 500px; /* Increased size */
+    height: 500px; /* Increased size */
+    background-color: rgba(255, 107, 53, 0.06); /* Slightly more vivid */
     border-radius: 50%;
-    filter: blur(100px);
+    filter: blur(120px); /* Deeper blur radius */
     pointer-events: none;
-    top: 15%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfectly centers it behind the machine */
 }
 
 /* 3. Global Section Header Styling */
