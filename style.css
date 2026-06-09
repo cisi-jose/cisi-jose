@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&display=swap');
 
 /* Global Reset & Base Configurations */
 html {
@@ -15,7 +15,7 @@ body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     color: #E2E8F0;
-    background-color: #141516; /* Deep charcoal background */
+    background-color: #141516; 
     overflow-x: hidden;
 }
 
@@ -32,7 +32,7 @@ body {
     max-width: 800px;
 }
 
-/* 1. Navigation */
+/* 1. Navigation Navbar Layout */
 .navbar {
     background-color: #171819;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -46,12 +46,16 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 80px;
+    gap: 20px;
+}
+
+.logo-container {
+    flex-shrink: 0;
 }
 
 .logo-link {
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
 }
 
@@ -59,7 +63,7 @@ body {
     font-size: 1.3rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #FF6B35; /* Industrial Orange Accent */
+    color: #FF6B35; 
 }
 
 .nav-links {
@@ -74,6 +78,7 @@ body {
     font-size: 0.9rem;
     font-weight: 500;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav-links a:hover, 
@@ -81,7 +86,11 @@ body {
     color: #FFFFFF;
 }
 
-/* Reusable Button Specs */
+.nav-cta {
+    flex-shrink: 0;
+}
+
+/* Button UI Definitions */
 .btn-outline {
     border: 1px solid rgba(255, 107, 53, 0.5);
     color: #FF6B35;
@@ -129,14 +138,14 @@ body {
     transform: translateX(4px);
 }
 
-/* 2. Hero Section - Tightened Proportions to eliminate dead vertical voids */
+/* 2. Hero Section Layout Proportions */
 .hero {
     position: relative;
-    min-height: 550px; 
+    min-height: 500px; 
     display: flex;
     align-items: center;
     background-color: #141516;
-    padding: 100px 0; 
+    padding: 80px 0; 
     overflow: hidden;
 }
 
@@ -144,9 +153,6 @@ body {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 0 40px;
 }
 
 .hero-text-block {
@@ -176,29 +182,29 @@ body {
     margin-bottom: 40px;
 }
 
-/* Enhanced Full-Section Background Watermark - Scale Tuned for desktop layout */
+/* Base Full-Section Watermark Pattern Settings */
 .hero-watermark-bg {
     position: absolute;
     top: 50%;
     left: 65%;
     transform: translate(-50%, -50%);
-    width: 55vw; 
-    height: 55vw;
+    width: 50vw; 
+    height: 50vw;
     max-width: 650px;
     max-height: 650px;
+    /* NOTE: Double-check that your file extension matches lowercase .jpeg exactly on GitHub */
     background-image: url('images/main-logo.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     
-    /* Matte dark-mode processing filters */
     filter: invert(1) brightness(0.5) opacity(0.05);
     mix-blend-mode: screen;
     pointer-events: none;
     z-index: 1;
 }
 
-/* Ambient structural background glow */
+/* Ambient backdrop glow layer */
 .hero::before {
     content: '';
     position: absolute;
@@ -214,7 +220,7 @@ body {
     z-index: 0;
 }
 
-/* 3. Global Section Header Styling */
+/* 3. Global Headers */
 .section-container {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -317,7 +323,7 @@ body {
     border-color: #FF6B35;
 }
 
-/* 5. Services Section Formatting */
+/* 5. Services Layout block definitions */
 .services {
     background-color: #121314; 
     border-top: 1px solid rgba(255, 255, 255, 0.02);
@@ -355,7 +361,7 @@ body {
     font-weight: 300;
 }
 
-/* 6. Contact Form Design */
+/* 6. Contact Form Block Elements */
 #contact-form {
     display: flex;
     flex-direction: column;
@@ -384,7 +390,7 @@ body {
     align-self: flex-start;
 }
 
-/* 7. Footer Design */
+/* 7. Footer Styles */
 .footer {
     background-color: #0E0F10;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -413,12 +419,15 @@ body {
     color: #FF6B35;
 }
 
-/* Media Breakpoints for Full Cellphone Responsiveness */
+/* ------------------------------------------------------------- */
+/* CRUCIAL MOBILE OVERHAUL RESPONSIVE BREAKPOINTS               */
+/* ------------------------------------------------------------- */
+
 @media (max-width: 1024px) {
     .hero {
         text-align: center;
-        min-height: auto; /* Removes desktop height constraints on mobile viewports */
-        padding: 80px 0;
+        min-height: auto; 
+        padding: 60px 0;
     }
     .hero-text-block {
         margin: 0 auto;
@@ -427,17 +436,24 @@ body {
         align-items: center;
     }
     .hero-title {
-        font-size: 2.5rem; /* Prevents title text from creating unnatural screen overflow on devices */
+        font-size: 2.8rem; 
     }
+    
+    /* Reposition and scale the logo watermark specifically for mobile aspect ratios */
     .hero-watermark-bg {
         left: 50%; 
-        top: 45%;
-        width: 120vw; /* Scales larger than phone boundaries to become abstract background artwork */
-        height: 120vw;
-        opacity: 0.06; /* Slightly raised for outdoor viewing contrast */
+        top: 50%;
+        width: 75vmax; /* Sized relative to the largest screen dimension for constant volume */
+        height: 75vmax;
+        max-width: 500px;
+        max-height: 500px;
+        opacity: 0.07; /* Bumped up slightly so it remains visible on mobile backlights */
     }
     .hero::before {
         left: 50%;
+        top: 50%;
+        width: 400px;
+        height: 400px;
     }
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -448,20 +464,62 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* FIXED MOBILENAV: Instead of hiding, make it an elegant, low-profile swipeable bar */
+    .nav-container {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 20px;
+        gap: 12px;
+    }
+    
     .nav-links {
-        display: none; /* Hides plain text menu array for clean phone rendering */
+        display: flex;
+        gap: 25px;
+        width: 100%;
+        justify-content: center;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        /* Hides native scrollbar track UI artifacts on premium mobile viewports */
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-links::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-cta {
+        display: none; /* Hide secondary duplicate contact button element to prioritize navbar minimalism */
+    }
+
+    .hero-container {
+        padding: 0 24px;
+    }
+    .hero-title {
+        font-size: 2.3rem;
+    }
+    .hero-description {
+        font-size: 0.95rem;
     }
     .features-grid {
         grid-template-columns: 1fr;
+        padding: 0;
+    }
+    .section-container {
+        padding: 60px 24px;
     }
     .director-banner {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
+        padding: 24px;
     }
     .footer-container {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+    .footer-meta {
+        flex-direction: column;
+        gap: 10px;
     }
 }
