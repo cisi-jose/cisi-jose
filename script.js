@@ -21,12 +21,11 @@ navLinks.forEach(link => {
     });
 });
 
-// Clean Contact Form handler submission override 
+// Clean Contact Form handler submission override
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        // Replacing browser notification alert blocks for custom sleek log console tracking
         console.log('Form submission intercepted successfully.');
         alert('¡Gracias por su mensaje! Nos comunicaremos con usted a la brevedad.');
         contactForm.reset();
